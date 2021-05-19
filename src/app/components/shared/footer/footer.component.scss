@@ -1,0 +1,47 @@
+footer {
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 1);
+  padding: 30px 0 20px;
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      list-style: none;
+      .link-item {
+        text-decoration: none;
+        margin: 10px;
+        color: rgb(207, 204, 204);
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  .payment-icon {
+    fill: rgb(207, 204, 204);
+    margin: 0 10px 25px;
+    &:hover {
+      fill: #fff;
+    }
+  }
+}
+
+.payment-icons .payment-icon svg {
+  vertical-align: middle;
+  height: 20px;
+  width: auto !important;
+}
+
+.copy-right {
+  a {
+    color: rgb(207, 204, 204);
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+  }
+}

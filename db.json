@@ -1,0 +1,197 @@
+{
+  "sideBar": [
+    {
+      "id": 12,
+      "image": "public/storage/categories\\637fec2aaedeb36152882c2e96679a01.png",
+      "name": "bag",
+      "parent_id": null,
+      "subCategory": []
+    },
+    {
+      "id": 13,
+      "image": "public/storage/categories\\637fec2aaedeb36152882c2e96679a01.png",
+      "name": "booking",
+      "parent_id": null,
+      "subCategory": []
+    },
+    {
+      "id": 1,
+      "image": "public/storage/categories\\1ba85bcf50c8dcc52332fb4ad904ba0b.png",
+      "name": "clothing",
+      "parent_id": null,
+      "subCategory": [
+        {
+          "id": 3,
+          "image": "public/storage/categories\\e4a589ee32cf99bf33b27bbed0375964.png",
+          "name": "hoodies",
+          "parent_id": 1
+        }
+      ]
+    },
+
+    {
+      "id": 9,
+      "image": "public/storage/categories\\09014fee247d936dbd72aec3503c00b4.png",
+      "name": "men",
+      "parent_id": null,
+      "subCategory": [
+        {
+          "id": 2,
+          "image": "public/storage/categories\\dc54ee0de0c1c3101a8da354c5a0a21e.png",
+          "name": "t-shirts",
+          "parent_id": 9
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "image": "public/storage/categories\\aecd4b991743152167ef26235424baf8.png",
+      "name": "music",
+      "parent_id": null,
+      "subCategory": [
+        {
+          "id": 5,
+          "image": "public/storage/categories\\cc6b758e24a54a3998e765046f0916d2.png",
+          "name": "albums",
+          "parent_id": 10
+        },
+        {
+          "id": 11,
+          "image": "/storage/categories/s7rRG5jpK04a9FKX72HChFXqQwJIrhw1gXsLdiE2.png",
+          "name": "singles",
+          "parent_id": 10
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "image": "public/storage/categories\\637fec2aaedeb36152882c2e96679a01.png",
+      "name": "posters",
+      "parent_id": null,
+      "subCategory": []
+    },
+    {
+      "id": 15,
+      "image": "public/storage/categories\\637fec2aaedeb36152882c2e96679a01.png",
+      "name": "shoes",
+      "parent_id": null,
+      "subCategory": []
+    },
+    {
+      "id": 16,
+      "image": "public/storage/categories\\637fec2aaedeb36152882c2e96679a01.png",
+      "name": "uncategoriezed",
+      "parent_id": null,
+      "subCategory": []
+    },
+    {
+      "id": 17,
+      "image": "public/storage/categories\\aecd4b991743152167ef26235424baf8.png",
+      "name": "women",
+      "parent_id": null,
+      "subCategory": [
+        {
+          "id": 18,
+          "image": "public/storage/categories\\cc6b758e24a54a3998e765046f0916d2.png",
+          "name": "jeans",
+          "parent_id": 10
+        },
+        {
+          "id": 19,
+          "image": "/storage/categories/s7rRG5jpK04a9FKX72HChFXqQwJIrhw1gXsLdiE2.png",
+          "name": "sweaters",
+          "parent_id": 10
+        },
+        {
+          "id": 20,
+          "image": "/storage/categories/s7rRG5jpK04a9FKX72HChFXqQwJIrhw1gXsLdiE2.png",
+          "name": "tops",
+          "parent_id": 10
+        }
+      ]
+    }
+  ],
+  "shop": [
+    {
+      "id": 1,
+      "image": "https://fzi4k1gk2dw3t0fqy18sw8qi-wpengine.netdna-ssl.com/wp-content/uploads/2013/06/hoodie_4_front-247x296.jpg",
+      "name": "clothing",
+      "parent_id": null,
+      "shop_count": 12
+    },
+    {
+      "id": 2,
+      "image": "https://fzi4k1gk2dw3t0fqy18sw8qi-wpengine.netdna-ssl.com/wp-content/uploads/2013/08/589864-5295_1-247x296.jpeg",
+      "name": "women",
+      "parent_id": null,
+      "shop_count": 18
+    },
+    {
+      "id": 3,
+      "image": "https://fzi4k1gk2dw3t0fqy18sw8qi-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/booking-247x296.jpg",
+      "name": "booking",
+      "parent_id": null,
+      "shop_count": 6
+    },
+    {
+      "id": 4,
+      "image": "https://fzi4k1gk2dw3t0fqy18sw8qi-wpengine.netdna-ssl.com/wp-content/uploads/2013/08/602779-0083_1-247x296.jpeg",
+      "name": "men",
+      "parent_id": null,
+      "shop_count": 9
+    },
+    {
+      "id": 5,
+      "image": "https://fzi4k1gk2dw3t0fqy18sw8qi-wpengine.netdna-ssl.com/wp-content/uploads/2013/08/282259-0001_2-247x296.jpeg",
+      "name": "bags",
+      "parent_id": null,
+      "shop_count": 6
+    },
+    {
+      "id": 6,
+      "image": "https://fzi4k1gk2dw3t0fqy18sw8qi-wpengine.netdna-ssl.com/wp-content/uploads/2013/06/cd_5_angle-247x296.jpg",
+      "name": "music",
+      "parent_id": null,
+      "shop_count": 6
+    },
+    {
+      "id": 7,
+      "image": "https://fzi4k1gk2dw3t0fqy18sw8qi-wpengine.netdna-ssl.com/wp-content/uploads/2013/06/poster_1_up-247x296.jpg",
+      "name": "posters",
+      "parent_id": null,
+      "shop_count": 5
+    },
+    {
+      "id": 8,
+      "image": "https://fzi4k1gk2dw3t0fqy18sw8qi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/217212-0001_2-247x296.jpg",
+      "name": "shoes",
+      "parent_id": null,
+      "shop_count": 7
+    }
+  ],
+  "clothing": [
+    {
+      "id": 1,
+      "name": "Happy Ninja",
+      "category": "Clothing",
+      "price": 18
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

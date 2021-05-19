@@ -1,0 +1,29 @@
+a {
+  text-decoration: none;
+  color: #3c3c3c;
+}
+.card {
+  border-radius: 0;
+  position: relative;
+  &:hover {
+    .card-body {
+      color: #fff;
+      background: #446084;
+    }
+  }
+  .card-body {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 0 0;
+    width: 100%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%);
+    background: rgba(255, 255, 255, 0.644);
+    h4 {
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+}

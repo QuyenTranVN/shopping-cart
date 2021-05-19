@@ -1,0 +1,27 @@
+mat-accordion {
+  .mat-expansion-panel {
+    box-shadow: none;
+    a {
+      text-transform: capitalize;
+      text-decoration: none;
+      color: rgb(58, 53, 53);
+    }
+  }
+}
+.disappear.mat-expansion-panel-spacing {
+  margin: 0;
+
+  .mat-expansion-panel-header.mat-expanded {
+    height: 48px;
+  }
+}
+.mat-expansion-panel.mat-expansion-panel-content.mat-expansion-panel-body.ng-tns-c38-2 {
+  padding: 0 24px 0px !important;
+}
+.mat-expansion-panel {
+  .mat-expansion-panel-header-description {
+    .mat-expansion-indicator:after {
+      content: none !important;
+    }
+  }
+}

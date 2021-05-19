@@ -1,0 +1,10 @@
+<!-- <a [routerLink]="['/', productItem.name]"> -->
+<a [routerLink]="['/', productItem.name]" routerLinkActive="router-link-active">
+  <div class="card mb-4 box-shadow">
+    <img class="card-img-top" src="{{ productItem.image }}" />
+    <div class="card-body">
+      <h4>{{ productItem.name }}</h4>
+      <p>{{ productItem.shop_count }} products</p>
+    </div>
+  </div>
+</a>
