@@ -1,0 +1,17 @@
+.card {
+  border: none;
+  &-img-top {
+    cursor: pointer;
+  }
+  &-body {
+    padding: 0;
+  }
+  &-title {
+    margin: 0;
+    text-transform: uppercase;
+    color: rgb(78, 75, 75);
+  }
+  &-text {
+    cursor: pointer;
+  }
+}

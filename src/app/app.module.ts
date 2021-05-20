@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,16 +26,11 @@ import { CartItemComponent } from './components/shopping-cart/cart/cart-item/car
 import { ProductItemComponent } from './components/shopping-cart/products/product-item/product-item.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { BreadscrumbsComponent } from 'src/app/components/shopping-cart/breadscrumbs/breadscrumbs.component';
-import { WomenComponent } from './components/shopping-cart/products/product-item/women/women.component';
-import { BookingComponent } from './components/shopping-cart/products/product-item/booking/booking.component';
-import { MenComponent } from './components/shopping-cart/products/product-item/men/men.component';
-import { BagComponent } from './components/shopping-cart/products/product-item/bag/bag.component';
-import { MusicComponent } from './components/shopping-cart/products/product-item/music/music.component';
-import { PosterComponent } from './components/shopping-cart/products/product-item/poster/poster.component';
-import { ShoesComponent } from './components/shopping-cart/products/product-item/shoes/shoes.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ClothingComponent } from './components/shopping-cart/products/product-item/clothing/clothing.component';
+import { ProductItemListComponent } from './components/shopping-cart/products/product-item-list/product-item-list.component';
+import { DialogComponent } from './components/shared/nav/dialog/dialog.component';
+import { ProductItemDetailComponent } from './components/shopping-cart/products/product-item-list/product-item-detail/product-item-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,14 +45,9 @@ import { ClothingComponent } from './components/shopping-cart/products/product-i
     ProductItemComponent,
     NavComponent,
     BreadscrumbsComponent,
-    ClothingComponent,
-    WomenComponent,
-    BookingComponent,
-    MenComponent,
-    BagComponent,
-    MusicComponent,
-    PosterComponent,
-    ShoesComponent,
+    ProductItemListComponent,
+    DialogComponent,
+    ProductItemDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +60,12 @@ import { ClothingComponent } from './components/shopping-cart/products/product-i
     BreadcrumbModule,
     HttpClientModule,
     RouterModule,
+    MatDialogModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

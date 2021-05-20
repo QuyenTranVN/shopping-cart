@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let productItem of ProductItemList">
+    <div class="card mb-4 box-shadow">
+      <a>
+        <!-- <a (mouseover)="changePic = true" (mouseout)="changePic = false"> -->
+        <img
+          *ngIf="!changePic"
+          class="card-img-top"
+          src="{{ productItem.imageFront }}"
+        />
+        <!-- <img
+          *ngIf="changePic"
+          class="card-img-top"
+          src="{{ productItem.imageBack }}"
+        /> -->
+      </a>
+      <div class="card-body">
+        <h4 class="card-title">{{ productItem.category }}</h4>
+        <a>
+          <h3 class="card-text">{{ productItem.name }}</h3>
+        </a>
+        <h3 class="card-price">{{ productItem.price | currency: "$" }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

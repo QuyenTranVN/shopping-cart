@@ -3,6 +3,7 @@ import { Shop } from '../models/shop';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { productUrl } from 'src/app/config/api';
+import { baseUrl } from 'src/app/config/api';
 
 @Injectable({
   providedIn: 'root',
@@ -33,4 +34,8 @@ export class ProductService {
   getProducts(): Observable<Shop[]> {
     return this.http.get<Shop[]>(productUrl);
   }
+
+  // getItemList(id: number): Observable<Shop[]> {
+  //   return this.http.get<Shop[]>(`${productUrl}/${id}`);
+  // }
 }
