@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-4" *ngFor="let product of productList">
     <a
-      [routerLink]="['productItemList/', product.id]"
+      [routerLink]="['product-item-list/', product.id]"
       routerLinkActive="router-link-active"
     >
       <div class="card mb-4 box-shadow">
-        <img class="card-img-top" src="{{ product.image }}" />
+        <img class="card-img-top" src="{{ baseUrl }}/{{ product.image }}" />
         <div class="card-body">
           <h4>{{ product.name }}</h4>
-          <p>{{ product.shop_count }} products</p>
+          <p>{{ product.products_count }} products</p>
         </div>
       </div>
     </a>

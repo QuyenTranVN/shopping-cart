@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
+import { baseUrl } from '../../../../config/api';
 import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-product-item',
@@ -8,6 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductItemComponent implements OnInit {
   productList: Shop[] = [];
+  baseUrl = baseUrl;
 
   constructor(private productService: ProductService) {}
 
@@ -15,9 +17,9 @@ export class ProductItemComponent implements OnInit {
     this.loadProducts();
   }
   loadProducts() {
-    this.productService.getProducts().subscribe((products) => {
-      this.productList = products;
-      // console.log(products)
+    this.productService.getProducts().subscribe((products: any) => {
+      this.productList = products['data'];
+      console.log(this.productList);
     });
   }
 }

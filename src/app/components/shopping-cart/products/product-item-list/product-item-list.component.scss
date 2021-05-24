@@ -1,8 +1,47 @@
 .card {
   border: none;
-  &-img-top {
+  &-img {
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    &:hover &-header {
+      bottom: 0;
+      transition: 0.4s;
+    }
+    &:hover i {
+      transition: 0.4s;
+      opacity: 1;
+    }
+    &-header {
+      text-decoration: none;
+      bottom: -40px;
+      position: absolute;
+      height: 40px;
+      width: 100%;
+      align-items: center;
+      text-transform: uppercase;
+      padding: 0;
+      color: white;
+      text-align: center;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      background: #446084;
+      margin: 0;
+    }
+    i {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 25px;
+      color: #446084;
+      opacity: 0;
+      &:hover {
+        color: turquoise;
+      }
+    }
   }
+
   &-body {
     padding: 0;
   }

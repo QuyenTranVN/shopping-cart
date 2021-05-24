@@ -5,6 +5,7 @@ export class Clothing {
   price: number;
   imageFront: string;
   imageBack: string;
+
   constructor(
     id: number,
     name: string,

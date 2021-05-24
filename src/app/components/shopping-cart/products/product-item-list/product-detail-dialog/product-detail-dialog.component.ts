@@ -8,11 +8,11 @@ import {
 import { ClothingService } from 'src/app/services/clothing.service';
 
 @Component({
-  selector: 'app-product-item-detail',
-  templateUrl: './product-item-detail.component.html',
-  styleUrls: ['./product-item-detail.component.scss'],
+  selector: 'app-product-detail-dialog',
+  templateUrl: './product-detail-dialog.component.html',
+  styleUrls: ['./product-detail-dialog.component.scss'],
 })
-export class ProductItemDetailComponent implements OnInit {
+export class ProductDetailDialogComponent implements OnInit {
   ProductItemList: any[];
   settingForm: FormGroup;
 

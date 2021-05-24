@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDividerModule } from '@angular/material/divider';
@@ -31,6 +32,7 @@ import { CommonModule } from '@angular/common';
 import { ProductItemListComponent } from './components/shopping-cart/products/product-item-list/product-item-list.component';
 import { DialogComponent } from './components/shared/nav/dialog/dialog.component';
 import { ProductItemDetailComponent } from './components/shopping-cart/products/product-item-list/product-item-detail/product-item-detail.component';
+import { ProductDetailDialogComponent } from './components/shopping-cart/products/product-item-list/product-detail-dialog/product-detail-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,11 +50,13 @@ import { ProductItemDetailComponent } from './components/shopping-cart/products/
     ProductItemListComponent,
     DialogComponent,
     ProductItemDetailComponent,
+    ProductDetailDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SlickCarouselModule,
     FontAwesomeModule,
     MatExpansionModule,
     MatDividerModule,
