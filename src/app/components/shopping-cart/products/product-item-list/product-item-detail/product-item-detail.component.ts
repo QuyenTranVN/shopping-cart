@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { baseUrl } from '../../../../../config/api';
+
 import { ClothingService } from 'src/app/services/clothing.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-item-detail',
@@ -13,37 +11,37 @@ import { ClothingService } from 'src/app/services/clothing.service';
   styleUrls: ['./product-item-detail.component.scss'],
 })
 export class ProductItemDetailComponent implements OnInit {
-  ProductItemList: any[];
+  ProductDetailList: any;
   settingForm: FormGroup;
+  baseUrl = baseUrl;
 
-  slides = [
-    {
-      img: 'https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_7_front.jpg',
-    },
-    {
-      img: 'https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_7_back.jpg',
-    },
-  ];
   slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  idDetail: number;
   constructor(
+    private activatedRoute: ActivatedRoute,
+
     private clothingService: ClothingService,
-    private form: FormBuilder
-  ) {}
+    private form: FormBuilder,
+    private productDetail: ClothingService
+  ) {
+    this.idDetail = this.activatedRoute.snapshot.params.idDetail;
+  }
 
   ngOnInit(): void {
     // this.loadClothing();
     this.settingForm = this.form.group({
       capacity: [1],
     });
+    this.getProductDetail();
   }
-  loadClothing() {
-    this.clothingService.getProductItemList().subscribe((clothing) => {
-      this.ProductItemList = clothing;
-    });
-  }
+  // loadClothing() {
+  //   this.clothingService.getProductItemList().subscribe((clothing) => {
+  //     this.ProductItemList = clothing;
+  //   });
+  // }
   increment() {
     if (this.settingForm.value['capacity'] < 10) {
       this.settingForm.setValue({
@@ -67,5 +65,11 @@ export class ProductItemDetailComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  getProductDetail() {
+    this.productDetail.getProductDetail(this.idDetail).subscribe((res: any) => {
+      this.ProductDetailList = res['data'];
+    });
   }
 }

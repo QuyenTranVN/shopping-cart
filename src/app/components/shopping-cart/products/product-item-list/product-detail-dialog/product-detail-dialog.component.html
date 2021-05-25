@@ -5,23 +5,27 @@
         class="carousel"
         #slickModal="slick-carousel"
         [config]="slideConfig"
-        style="padding: 0"
+        *ngIf="ProductDetailList"
       >
-        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-          <img src="{{ slide.img }}" alt="" width="100%" />
+        <div
+          ngxSlickItem
+          *ngFor="let slide of ProductDetailList.productImages"
+          class="slide"
+        >
+          <img src="{{ baseUrl }}{{ slide.image }}" alt="" width="100%" />
         </div>
+        <!-- <img src="{{ ProductDetailList.productImages[0] }}" alt="" /> -->
       </ngx-slick-carousel>
     </div>
     <div class="col-lg-6 col-md-12">
       <div class="card text-left">
-        <div class="card-body">
-          <h4 class="card-title">Happy NinJa</h4>
-          <p class="card-text price">$18,00</p>
+        <div class="card-body" *ngIf="ProductDetailList">
+          <h4 class="card-title">{{ ProductDetailList.name }}</h4>
+          <p class="card-text price">
+            {{ ProductDetailList.price | currency: "$" }}
+          </p>
           <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sint
-            voluptas impedit odio non iusto molestias beatae fuga accusamus,
-            libero facere ipsam nulla modi consectetur earum, ab explicabo
-            molestiae veritatis.
+            {{ ProductDetailList.description }}
           </p>
           <form [formGroup]="settingForm" class="input-group">
             <button
@@ -51,7 +55,6 @@
       </div>
       <p class="pt-2 ref">
         <mat-divider></mat-divider>
-
         Category: <span>Clothing</span>
       </p>
     </div>

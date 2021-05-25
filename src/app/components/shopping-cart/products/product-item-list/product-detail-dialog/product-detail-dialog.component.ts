@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { baseUrl } from 'src/app/config/api';
+
 import { ClothingService } from 'src/app/services/clothing.service';
 
 @Component({
@@ -13,37 +12,33 @@ import { ClothingService } from 'src/app/services/clothing.service';
   styleUrls: ['./product-detail-dialog.component.scss'],
 })
 export class ProductDetailDialogComponent implements OnInit {
-  ProductItemList: any[];
-  settingForm: FormGroup;
+  ProductDetailList: any;
 
-  slides = [
-    {
-      img: 'https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_7_front.jpg',
-    },
-    {
-      img: 'https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_7_back.jpg',
-    },
-  ];
+  settingForm: FormGroup;
+  baseUrl = baseUrl;
+
   slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  idDetail: number;
   constructor(
-    private clothingService: ClothingService,
-    private form: FormBuilder
-  ) {}
+    // private clothingService: ClothingService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private form: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private productDetail: ClothingService
+  ) {
+    this.idDetail = this.activatedRoute.snapshot.params.idDetail;
+  }
 
   ngOnInit(): void {
-    // this.loadClothing();
+    this.getProductDetail();
     this.settingForm = this.form.group({
       capacity: [1],
     });
   }
-  loadClothing() {
-    this.clothingService.getProductItemList().subscribe((clothing) => {
-      this.ProductItemList = clothing;
-    });
-  }
+
   increment() {
     if (this.settingForm.value['capacity'] < 10) {
       this.settingForm.setValue({
@@ -67,5 +62,10 @@ export class ProductDetailDialogComponent implements OnInit {
       return false;
     }
     return true;
+  }
+  getProductDetail() {
+    this.productDetail.getProductDetail(this.data.id).subscribe((res: any) => {
+      this.ProductDetailList = res['data'];
+    });
   }
 }

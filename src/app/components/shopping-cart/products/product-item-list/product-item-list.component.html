@@ -12,15 +12,17 @@
         >
           <img
             class="card-img-top overflow-hidden"
-            src="{{
+            src="{{ baseUrl }}{{
               productItem.isHover
-                ? productItem.imageBack
-                : productItem.imageFront
+                ? productItem.productImages[0].image
+                : productItem.productImages[1].image
             }}"
             alt="{{ productItem.name }}"
           />
         </a>
-        <p class="card-img-header" (click)="openDialog()">quick view</p>
+        <p class="card-img-header" (click)="openDialog(productItem.id)">
+          quick view
+        </p>
         <i class="far fa-heart"></i>
       </div>
       <div class="card-body">

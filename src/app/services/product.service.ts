@@ -35,6 +35,9 @@ export class ProductService {
     return this.http.get<Shop[]>(apiUrl);
   }
 
+  getItemList(id: number): Observable<Shop[]> {
+    return this.http.get<Shop[]>(`${apiUrl}/category/${id}?with=productImages`);
+  }
   // getItemList(id: number): Observable<Shop[]> {
   //   return this.http.get<Shop[]>(`${productUrl}/${id}`);
   // }

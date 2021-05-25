@@ -7,4 +7,4 @@ export const baseUrl = 'http://10.0.0.231:8000';
 // export const baseUrl = 'http://localhost:3000';
 export const apiUrl = baseUrl + '/api/public';
 export const sideBarUrl = apiUrl + '/sidebar';
-export const clothingUrl = baseUrl + '/clothing';
+// export const clothingUrl = baseUrl + '/clothing';

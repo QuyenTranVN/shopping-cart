@@ -15,13 +15,16 @@ mat-accordion {
     height: 48px;
   }
 }
-.mat-expansion-panel.mat-expansion-panel-content.mat-expansion-panel-body.ng-tns-c38-2 {
-  padding: 0 24px 0px !important;
-}
-.mat-expansion-panel {
-  .mat-expansion-panel-header-description {
-    .mat-expansion-indicator:after {
-      content: none !important;
-    }
+::ng-deep .mat-expansion-panel-content {
+  .mat-expansion-panel-body {
+    padding: 0 25px;
   }
 }
+
+// .mat-expansion-panel {
+//   .mat-expansion-panel-header-description {
+//     .mat-expansion-indicator:after {
+//       content: none !important;
+//     }
+//   }
+// }

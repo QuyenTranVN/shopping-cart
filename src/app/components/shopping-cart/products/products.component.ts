@@ -18,8 +18,6 @@ export class ProductsComponent implements OnInit {
   loadProducts() {
     this.productService.getProducts().subscribe((products: any) => {
       this.productList = products['data'];
-      console.log(' this.productList', this.productList);
-      // console.log(products)
     });
   }
 }
