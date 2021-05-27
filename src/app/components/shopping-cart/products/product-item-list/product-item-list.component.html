@@ -11,8 +11,9 @@
           (mouseout)="productItem.isHover = false"
         >
           <img
+            [ngClass]="{ 'is-check': productItem.isHover }"
             class="card-img-top overflow-hidden"
-            src="{{ baseUrl }}{{
+            src="{{
               productItem.isHover
                 ? productItem.productImages[0].image
                 : productItem.productImages[1].image

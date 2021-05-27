@@ -53,6 +53,12 @@ export class ProductItemListComponent implements OnInit {
     this.productService.getItemList(this.idItem).subscribe((data: any) => {
       // console.log(data);
       this.ProductItemList = data['data'];
+
+      if (this.ProductItemList) {
+        for (let i = 0; i < this.ProductItemList.length; i++) {
+          this.ProductItemList[i]['isHover'] = false;
+        }
+      }
     });
   }
 }

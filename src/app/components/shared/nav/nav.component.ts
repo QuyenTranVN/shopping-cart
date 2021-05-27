@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
+import { UserComponent } from '../../user/user.component';
 
 @Component({
   selector: 'app-nav',
@@ -12,6 +12,6 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {}
   openDialog() {
-    this.dialog.open(DialogComponent);
+    this.dialog.open(UserComponent);
   }
 }

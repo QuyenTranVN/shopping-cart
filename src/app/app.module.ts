@@ -33,6 +33,9 @@ import { ProductItemListComponent } from './components/shopping-cart/products/pr
 import { DialogComponent } from './components/shared/nav/dialog/dialog.component';
 import { ProductItemDetailComponent } from './components/shopping-cart/products/product-item-list/product-item-detail/product-item-detail.component';
 import { ProductDetailDialogComponent } from './components/shopping-cart/products/product-item-list/product-detail-dialog/product-detail-dialog.component';
+import { UserComponent } from './components/user/user.component';
+import { SignInComponent } from './components/user/sign-in/sign-in.component';
+import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +54,9 @@ import { ProductDetailDialogComponent } from './components/shopping-cart/product
     DialogComponent,
     ProductItemDetailComponent,
     ProductDetailDialogComponent,
+    UserComponent,
+    SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
