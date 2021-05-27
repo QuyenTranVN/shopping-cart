@@ -174,7 +174,98 @@
       "id": 1,
       "name": "Happy Ninja",
       "category": "Clothing",
-      "price": 18
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_7_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_7_back.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Happy Ninja",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_4_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_4_back.jpg"
+    },
+
+    {
+      "id": 1,
+      "name": "Ninja Silhouette",
+      "category": "Clothing",
+      "price": 20,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_5_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_5_back.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Ninja Silhouette",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_5_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_5_back.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Patient Ninja",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_3_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_3_back.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Premium Quality",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_2_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_2_back.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Happy Ninja",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_4_front-510x510.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_4_back-510x510.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Ship Your Idea",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_7_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_7_back.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Ship Your Idea",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_7_front-510x510.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_7_back-510x510.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Woo Logo",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_1_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/T_1_back.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Woo Logo",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_6_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_6_back.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Woo Ninja",
+      "category": "Clothing",
+      "price": 18,
+      "imageFront": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_2_front.jpg",
+      "imageBack": "https://flatsome3.uxthemes.com/wp-content/uploads/2013/06/hoodie_2_back.jpg"
     }
   ],
   "posts": [

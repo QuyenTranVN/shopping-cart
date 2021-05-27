@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-12">
+      <ngx-slick-carousel
+        class="carousel"
+        #slickModal="slick-carousel"
+        [config]="slideConfig"
+        *ngIf="ProductDetailList"
+      >
+        <div
+          ngxSlickItem
+          *ngFor="let slide of ProductDetailList.productImages"
+          class="slide"
+        >
+          <img src="{{ slide.image }}" alt="" width="100%" />
+        </div>
+        <!-- <img src="{{ ProductDetailList.productImages[0] }}" alt="" /> -->
+      </ngx-slick-carousel>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div class="card text-left">
+        <div class="card-body" *ngIf="ProductDetailList">
+          <h4 class="card-title">{{ ProductDetailList.name }}</h4>
+          <p class="card-text price">
+            {{ ProductDetailList.price | currency: "$" }}
+          </p>
+          <p class="card-text">
+            {{ ProductDetailList.description }}
+          </p>
+          <form [formGroup]="settingForm" class="input-group">
+            <button
+              class="btn btn-outline-secondary shadow-none"
+              (click)="increment()"
+            >
+              +
+            </button>
+            <input
+              min="1"
+              max="5"
+              type="text"
+              formControlName="capacity"
+              (keypress)="onlyNumber($event)"
+            />
+            <button
+              class="btn btn-outline-secondary shadow-none"
+              (click)="decrement()"
+            >
+              -
+            </button>
+            <button class="btn btn-small btn-danger shadow-none ml-3">
+              Add to cart
+            </button>
+          </form>
+        </div>
+      </div>
+      <p class="pt-2 ref">
+        <mat-divider></mat-divider>
+        Category: <span>Clothing</span>
+      </p>
+    </div>
+  </div>
+</div>

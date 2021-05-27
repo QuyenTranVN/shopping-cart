@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Shop } from '../models/shop';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { productUrl } from 'src/app/config/api';
+// import { productUrl } from 'src/app/config/api';
+import { apiUrl } from 'src/app/config/api';
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +32,13 @@ export class ProductService {
   // todo: Populate products from an API and return Observable
 
   getProducts(): Observable<Shop[]> {
-    return this.http.get<Shop[]>(productUrl);
+    return this.http.get<Shop[]>(apiUrl);
   }
+
+  getItemList(id: number): Observable<Shop[]> {
+    return this.http.get<Shop[]>(`${apiUrl}/category/${id}?with=productImages`);
+  }
+  // getItemList(id: number): Observable<Shop[]> {
+  //   return this.http.get<Shop[]>(`${productUrl}/${id}`);
+  // }
 }

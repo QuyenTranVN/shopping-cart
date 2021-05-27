@@ -15,8 +15,8 @@ export class FiltersComponent implements OnInit {
   constructor(private categoryService: sideBarService) {}
 
   ngOnInit(): void {
-    this.categoryService.getsideBar().subscribe((sideBar) => {
-      this.categoryList = sideBar;
+    this.categoryService.getsideBar().subscribe((sideBar: any) => {
+      this.categoryList = sideBar['data'];
     });
   }
 }
