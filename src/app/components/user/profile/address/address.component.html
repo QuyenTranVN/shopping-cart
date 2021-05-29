@@ -1,0 +1,48 @@
+<form #addressForm="ngForm" (ngSubmit)="addressForm.valid && saveAddress()">
+  <h2>Billing Address</h2>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="postcode">Address <sup>*</sup> </label>
+        <input
+          placeholder="Postcode / ZIP"
+          class="form-control"
+          type="text"
+          name="postcode"
+          [(ngModel)]="address.postcode"
+          id="postcode"
+          autocomplete="off"
+          #postcode="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone <sup>*</sup> </label>
+        <input
+          class="form-control"
+          type="text"
+          name="phone"
+          [(ngModel)]="address.phone"
+          id="phone"
+          autocomplete="off"
+          #phone="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email address <sup>*</sup> </label>
+        <input
+          placeholder="Email address"
+          class="form-control"
+          type="text"
+          name="email"
+          [(ngModel)]="address.email"
+          id="email"
+          autocomplete="off"
+          #email="ngModel"
+        />
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" [disabled]="addressForm.invalid">
+    SAVE ADDRESS
+  </button>
+</form>

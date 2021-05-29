@@ -21,10 +21,9 @@ export class SignInComponent implements OnInit {
     console.log(this.model);
     this.loginService.login(this.model).subscribe(
       (data) => {
-        // this.model = body[body]
-        console.log(data);
+        localStorage.setItem('inforUser', JSON.stringify(data));
         this.messageError = '';
-        this.dialogRef.close();
+        this.dialogRef.close('success');
       },
       (error) => {
         this.messageError = error.error.message;
