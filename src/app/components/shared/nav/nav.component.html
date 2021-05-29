@@ -23,7 +23,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" (click)="openDialog()">LOGIN</a>
+        <a *ngIf="!loginSuccess" class="nav-link" (click)="openDialog()"
+          >LOGIN</a
+        >
+        <a *ngIf="loginSuccess" class="nav-link" [routerLink]="['/profile']"
+          >MY ACCOUNT</a
+        >
       </li>
       <li class="header-divider"></li>
       <li class="nav-item cart">

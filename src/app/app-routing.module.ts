@@ -5,6 +5,9 @@ import { ProductItemComponent } from './components/shopping-cart/products/produc
 import { CartComponent } from './components/shopping-cart/cart/cart.component';
 import { ProductItemListComponent } from './components/shopping-cart/products/product-item-list/product-item-list.component';
 import { ProductItemDetailComponent } from './components/shopping-cart/products/product-item-list/product-item-detail/product-item-detail.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { AddressComponent } from './components/user/profile/address/address.component';
+import { AccountDetailComponent } from './components/user/profile/account-detail/account-detail.component';
 const routes: Routes = [
   {
     path: '',
@@ -33,6 +36,25 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
+      {
+        path: '',
+        component: AddressComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'address',
+        component: AddressComponent,
+      },
+      {
+        path: 'accountDetail',
+        component: AccountDetailComponent,
+      },
+    ],
   },
 ];
 

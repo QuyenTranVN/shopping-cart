@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
@@ -9,13 +11,16 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatStepperModule } from '@angular/material/stepper';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from 'src/app/components/shared/header/header.component';
 import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
 import { CartComponent } from 'src/app/components/shopping-cart/cart/cart.component';
@@ -30,12 +35,16 @@ import { BreadscrumbsComponent } from 'src/app/components/shopping-cart/breadscr
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductItemListComponent } from './components/shopping-cart/products/product-item-list/product-item-list.component';
-import { DialogComponent } from './components/shared/nav/dialog/dialog.component';
 import { ProductItemDetailComponent } from './components/shopping-cart/products/product-item-list/product-item-detail/product-item-detail.component';
 import { ProductDetailDialogComponent } from './components/shopping-cart/products/product-item-list/product-detail-dialog/product-detail-dialog.component';
 import { UserComponent } from './components/user/user.component';
 import { SignInComponent } from './components/user/sign-in/sign-in.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { AddressComponent } from './components/user/profile/address/address.component';
+import { AccountDetailComponent } from './components/user/profile/account-detail/account-detail.component';
+import { DialogComponent } from './components/shared/dialog/dialog.component';
+import { DataShareService } from './services/dataShare.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,12 +60,15 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
     NavComponent,
     BreadscrumbsComponent,
     ProductItemListComponent,
-    DialogComponent,
     ProductItemDetailComponent,
     ProductDetailDialogComponent,
     UserComponent,
     SignInComponent,
     SignUpComponent,
+    ProfileComponent,
+    AddressComponent,
+    AccountDetailComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,8 +88,13 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
     ReactiveFormsModule,
     MatGridListModule,
     MatFormFieldModule,
+    MatTabsModule,
+    MatStepperModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
   ],
-  providers: [],
+  providers: [DataShareService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
