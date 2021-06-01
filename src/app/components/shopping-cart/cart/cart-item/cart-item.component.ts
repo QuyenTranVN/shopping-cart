@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataShareService } from 'src/app/services/dataShare.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -6,14 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent implements OnInit {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  product: string;
+  price: number;
+  quantity: number;
+  subtotal: number = 0;
   ELEMENT_DATA: any[] = [];
-  constructor() {}
-
-  ngOnInit(): void {}
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  constructor(private dataShare: DataShareService) {}
+  displayedColumns: string[] = ['product', 'price', 'quantity', 'subtotal'];
   dataSource = this.ELEMENT_DATA;
+
+  ngOnInit(): void {
+    this.ELEMENT_DATA.forEach((item) => {
+      item.subtotal = item.quantity * item.price;
+    });
+    this.getCartItem();
+  }
+  getCartItem() {
+    this.dataShare.addCart.subscribe((data) => {
+      // console.log(data);
+    });
+  }
 }

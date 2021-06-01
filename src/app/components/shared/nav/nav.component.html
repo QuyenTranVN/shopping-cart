@@ -29,16 +29,15 @@
         <a *ngIf="loginSuccess" class="nav-link" [routerLink]="['/profile']"
           >MY ACCOUNT</a
         >
-      </li>
-      <li class="header-divider"></li>
-      <li class="nav-item cart">
-        <a class="nav-link" [routerLink]="['/cart']"
+        <mat-divider [vertical]="true"></mat-divider>
+        <a class="nav-link cart" [routerLink]="['/cart']"
           >CART /
-          <span class="cart-icon image-icon">
+          <span class="cart-icon image-icon" [routerLink]="['/cart']">
             <strong></strong>
           </span>
         </a>
       </li>
     </ul>
+    <mat-divider [vertical]="true"></mat-divider>
   </div>
 </nav>

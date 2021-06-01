@@ -4,6 +4,7 @@ import { baseUrl } from '../../../../../config/api';
 
 import { ClothingService } from 'src/app/services/clothing.service';
 import { ActivatedRoute } from '@angular/router';
+import { DataShareService } from 'src/app/services/dataShare.service';
 
 @Component({
   selector: 'app-product-item-detail',
@@ -22,14 +23,12 @@ export class ProductItemDetailComponent implements OnInit {
   idDetail: number;
   constructor(
     private activatedRoute: ActivatedRoute,
-
-    private clothingService: ClothingService,
     private form: FormBuilder,
-    private productDetail: ClothingService
+    private productDetail: ClothingService,
+    private dataShare: DataShareService
   ) {
     this.idDetail = this.activatedRoute.snapshot.params.idDetail;
   }
-
   ngOnInit(): void {
     // this.loadClothing();
     this.settingForm = this.form.group({
@@ -37,11 +36,6 @@ export class ProductItemDetailComponent implements OnInit {
     });
     this.getProductDetail();
   }
-  // loadClothing() {
-  //   this.clothingService.getProductItemList().subscribe((clothing) => {
-  //     this.ProductItemList = clothing;
-  //   });
-  // }
   increment() {
     if (this.settingForm.value['capacity'] < 10) {
       this.settingForm.setValue({
@@ -49,7 +43,6 @@ export class ProductItemDetailComponent implements OnInit {
       });
     }
   }
-
   decrement() {
     if (this.settingForm.value['capacity'] > 1) {
       this.settingForm.setValue({
@@ -61,15 +54,16 @@ export class ProductItemDetailComponent implements OnInit {
     const charCode = event.which ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       console.log('charCode restricyed is ' + charCode);
-
       return false;
     }
     return true;
   }
-
   getProductDetail() {
     this.productDetail.getProductDetail(this.idDetail).subscribe((res: any) => {
       this.ProductDetailList = res['data'];
     });
+  }
+  addToCart(item: any) {
+    this.dataShare.addToCart(item);
   }
 }

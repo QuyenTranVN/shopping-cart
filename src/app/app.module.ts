@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,11 +41,11 @@ import { ProductDetailDialogComponent } from './components/shopping-cart/product
 import { UserComponent } from './components/user/user.component';
 import { SignInComponent } from './components/user/sign-in/sign-in.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
-import { ProfileComponent } from './components/user/profile/profile.component';
 import { AddressComponent } from './components/user/profile/address/address.component';
 import { AccountDetailComponent } from './components/user/profile/account-detail/account-detail.component';
 import { DialogComponent } from './components/shared/dialog/dialog.component';
 import { DataShareService } from './services/dataShare.service';
+import { ProfileComponent } from './components/user/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +94,7 @@ import { DataShareService } from './services/dataShare.service';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
+    MatSnackBarModule,
   ],
   providers: [DataShareService],
   bootstrap: [AppComponent],
