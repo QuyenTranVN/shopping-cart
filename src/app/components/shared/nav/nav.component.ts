@@ -20,6 +20,7 @@ export class NavComponent implements OnInit {
     this.dataShareService.authen.subscribe((res) => {
       this.loginSuccess = res;
     });
+    this.getCartItem();
   }
 
   checkLogin() {
@@ -37,5 +38,10 @@ export class NavComponent implements OnInit {
       .subscribe((data: any) => {
         this.checkLogin();
       });
+  }
+  getCartItem() {
+    this.dataShareService.addCart.subscribe((data) => {
+      console.log(data);
+    });
   }
 }

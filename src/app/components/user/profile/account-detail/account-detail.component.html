@@ -1,7 +1,7 @@
 <form
   class="mb-5"
-  #loginForm="ngForm"
-  (ngSubmit)="loginForm.valid && saveChange()"
+  #updateDetail="ngForm"
+  (ngSubmit)="updateDetail.valid && saveProfile()"
 >
   <div class="row">
     <div class="col">
@@ -10,14 +10,14 @@
         <input
           class="form-control"
           type="text"
-          name="fname"
-          [(ngModel)]="changes.fname"
+          name="firstname"
+          [(ngModel)]="changes.firstname"
           id="username"
           autocomplete="off"
           required
-          #fname="ngModel"
+          #firstname="ngModel"
           [ngClass]="{
-            'is-invalid': fname.touched && fname.invalid
+            'is-invalid': firstname.touched && firstname.invalid
           }"
         />
         <span class="invalid-feedback">First name can't be plank</span>
@@ -28,15 +28,15 @@
         <label for="password">Last name <sup>*</sup></label>
         <input
           class="form-control"
-          type="password"
-          name="lname"
-          [(ngModel)]="changes.lname"
-          id="lname"
+          type="text"
+          name="lastname"
+          [(ngModel)]="changes.lastname"
+          id="lastname"
           autocomplete="off"
           required
-          #lname="ngModel"
+          #lastname="ngModel"
           [ngClass]="{
-            'is-invalid': lname.touched && lname.invalid
+            'is-invalid': lastname.touched && lastname.invalid
           }"
         />
         <span class="invalid-feedback">Last name can't be plank</span>
@@ -50,14 +50,14 @@
         <input
           class="form-control"
           type="text"
-          name="displayName"
-          [(ngModel)]="changes.displayName"
-          id="displayName"
+          name="username"
+          [(ngModel)]="changes.username"
+          id="username"
           autocomplete="off"
           required
-          #displayName="ngModel"
+          #username="ngModel"
           [ngClass]="{
-            'is-invalid': displayName.touched && displayName.invalid
+            'is-invalid': username.touched && username.invalid
           }"
         />
         <span class="invalid-feedback">Display name can't be plank</span>
@@ -75,25 +75,25 @@
         <input
           class="form-control"
           type="email"
-          name="emailAdress"
-          [(ngModel)]="changes.emailAdress"
-          id="emailAdress"
+          name="email"
+          [(ngModel)]="changes.email"
+          id="email"
           autocomplete="off"
           required
-          #emailAdress="ngModel"
+          #email="ngModel"
           [ngClass]="{
-            'is-invalid': emailAdress.touched && emailAdress.invalid
+            'is-invalid': email.touched && email.invalid
           }"
         />
         <span class="invalid-feedback">Email adress can't be plank</span>
       </div>
     </div>
   </div>
-  <button class="btn btn-primary">SAVE CHANGES</button>
+  <button class="btn btn-primary" (click)="saveProfile()">SAVE CHANGES</button>
 </form>
 <h2>PASSWORD CHANGE</h2>
 <mat-divider></mat-divider>
-<form>
+<form #updateDetail="ngForm" (ngSubmit)="updateDetail.valid && savePass()">
   <div class="row">
     <div class="col">
       <div class="form-group">
@@ -149,5 +149,5 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary">SAVE CHANGES</button>
+  <button class="btn btn-primary" (click)="savePass()">SAVE CHANGES</button>
 </form>

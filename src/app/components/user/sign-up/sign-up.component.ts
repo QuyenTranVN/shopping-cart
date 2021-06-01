@@ -5,7 +5,8 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import { LoginService } from 'src/app/services/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -13,9 +14,11 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class SignUpComponent implements OnInit {
   registerForm: FormGroup;
+  messageError: string = '';
   constructor(
     private builder: FormBuilder,
-    private loginService: LoginService
+    private userService: UserService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +31,20 @@ export class SignUpComponent implements OnInit {
     });
   }
   register() {
-    console.log(this.registerForm.value);
+    // console.log(this.registerForm.value);
+    this.userService.signUp(this.registerForm.value).subscribe(
+      (data: any) => {
+        this.messageError = '';
+        this._snackBar.open(data.message, 'OK');
+
+        console.log(data);
+      },
+      (error) => {
+        this.messageError = error.error.message;
+      }
+    );
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 }

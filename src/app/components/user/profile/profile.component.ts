@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataShareService } from 'src/app/services/dataShare.service';
-import { ProfileService } from 'src/app/services/profile.service';
+import { UserService } from 'src/app/services/user.service';
 import { DialogComponent } from '../../shared/dialog/dialog.component';
 
 @Component({
@@ -13,9 +13,9 @@ import { DialogComponent } from '../../shared/dialog/dialog.component';
 export class ProfileComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
-    private profileService: ProfileService,
     private router: Router,
-    private dataShareService: DataShareService
+    private dataShareService: DataShareService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {}
@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
         // localStorage.clear();
         console.log(res);
         if (res === 'success') {
-          this.profileService.logout().subscribe((data) => {
+          this.userService.logout().subscribe((data) => {
             console.log(data);
             localStorage.clear();
             this.router.navigate(['shop']);

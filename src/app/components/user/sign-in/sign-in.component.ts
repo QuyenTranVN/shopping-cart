@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 import { UserComponent } from '../user.component';
 
 @Component({
@@ -12,14 +12,14 @@ export class SignInComponent implements OnInit {
   model: any = {};
   messageError: string = '';
   constructor(
-    private loginService: LoginService,
-    public dialogRef: MatDialogRef<UserComponent>
+    public dialogRef: MatDialogRef<UserComponent>,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {}
   login() {
     console.log(this.model);
-    this.loginService.login(this.model).subscribe(
+    this.userService.login(this.model).subscribe(
       (data) => {
         localStorage.setItem('inforUser', JSON.stringify(data));
         this.messageError = '';
@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
       },
       (error) => {
         this.messageError = error.error.message;
-        // console.log(error.error.message);
+        console.log(error.error.message);
       }
     );
   }
