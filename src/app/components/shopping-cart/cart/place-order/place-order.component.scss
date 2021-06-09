@@ -1,0 +1,37 @@
+.your-order {
+  border: 1px solid;
+  padding: 20px;
+  .title {
+    color: #555555;
+  }
+  .header {
+    &-title,
+    &-subtotal {
+      margin: 0;
+    }
+  }
+  .header,
+  .product,
+  .subtotal,
+  .ship,
+  .total {
+    color: #777777;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    p {
+      margin: 0;
+    }
+  }
+  .check {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    p {
+      margin: 0 0 0 15px;
+    }
+  }
+  button {
+    background-color: #d26e4b;
+  }
+}
