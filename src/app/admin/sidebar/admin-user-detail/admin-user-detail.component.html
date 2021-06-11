@@ -1,0 +1,120 @@
+<div class="col pb-2">
+  <form mat-dialog-content #loginForm="ngForm" (ngSubmit)="(loginForm.valid)">
+    <div class="form-row">
+      <div class="form-group col-md-2" *ngIf="dataSource">
+        <p>ID: {{ dataSource.id }}</p>
+      </div>
+      <div class="form-group col-md-2" *ngIf="dataSource">
+        <img src="{{ baseUrl }}{{ dataSource.avatar }}" alt="img" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input
+        type="text"
+        id="firstname"
+        class="form-control"
+        name="firstname"
+        autocomplete="off"
+        [(ngModel)]="model.firstname"
+        #firstname="ngModel"
+      />
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input
+        type="text"
+        id="lastname"
+        class="form-control"
+        name="lastname"
+        autocomplete="off"
+        [(ngModel)]="model.lastname"
+        #lastname="ngModel"
+      />
+    </div>
+    <div class="form-group">
+      <label for="phonenumber">Phone number</label>
+      <input
+        type="text"
+        id="phonenumber"
+        class="form-control"
+        name="phonenumber"
+        autocomplete="off"
+        [(ngModel)]="model.phone"
+        #phonenumber="ngModel"
+      />
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="username"
+        id="username"
+        class="form-control"
+        autocomplete="off"
+        [(ngModel)]="model.username"
+        name="username"
+        #username="ngModel"
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        autocomplete="off"
+        [(ngModel)]="model.password"
+        name="password"
+        required
+        [ngClass]="{
+          'is-invalid': username.touched && username.invalid
+        }"
+        #password="ngModel"
+      />
+      <span class="invalid-feedback">Password can't be plank</span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        autocomplete="off"
+        [(ngModel)]="model.email"
+        name="email"
+        #email="ngModel"
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">address</label>
+      <input
+        type="address"
+        id="address"
+        class="form-control"
+        autocomplete="off"
+        [(ngModel)]="model.address"
+        name="address"
+        #address="ngModel"
+      />
+    </div>
+    <div class="button">
+      <button class="btn btn-primary" (click)="cancle()">CANCLE</button>
+      <button
+        class="btn btn-primary"
+        (click)="updateAdminUser()"
+        [disabled]="loginForm.invalid"
+        *ngIf="idItem"
+      >
+        UPDATE
+      </button>
+      <button
+        *ngIf="!idItem"
+        class="btn btn-primary"
+        (click)="createAccount()"
+        [disabled]="loginForm.invalid"
+      >
+        CREATE
+      </button>
+    </div>
+  </form>
+</div>

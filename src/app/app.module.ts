@@ -46,6 +46,17 @@ import { AccountDetailComponent } from './components/user/profile/account-detail
 import { DialogComponent } from './components/shared/dialog/dialog.component';
 import { DataShareService } from './services/dataShare.service';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { CheckoutComponent } from './components/shopping-cart/cart/checkout/checkout.component';
+import { PlaceOrderComponent } from './components/shopping-cart/cart/place-order/place-order.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './admin/sidebar/admin-dashboard/admin-dashboard.component';
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { AdAdminComponent } from './admin/sidebar/ad-admin/ad-admin.component';
+import { AdminUserComponent } from './admin/sidebar/admin-user/admin-user.component';
+import { AdminUserDetailComponent } from './admin/sidebar/admin-user-detail/admin-user-detail.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { AdminCreateUserComponent } from './admin/sidebar/admin-create-user/admin-create-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +81,16 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     AddressComponent,
     AccountDetailComponent,
     DialogComponent,
+    CheckoutComponent,
+    PlaceOrderComponent,
+    AdminComponent,
+    AdminLoginComponent,
+    SidebarComponent,
+    AdminDashboardComponent,
+    AdAdminComponent,
+    AdminUserComponent,
+    AdminUserDetailComponent,
+    AdminCreateUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +115,8 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
+    // MatPaginator,
+    MatPaginatorModule,
     MatSnackBarModule,
   ],
   providers: [DataShareService],

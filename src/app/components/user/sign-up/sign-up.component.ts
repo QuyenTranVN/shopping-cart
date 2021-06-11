@@ -35,7 +35,7 @@ export class SignUpComponent implements OnInit {
     this.userService.signUp(this.registerForm.value).subscribe(
       (data: any) => {
         this.messageError = '';
-        this._snackBar.open(data.message, 'OK');
+        this._snackBar.open(data.message, 'OK', { duration: 2000 });
 
         console.log(data);
       },
@@ -43,8 +43,5 @@ export class SignUpComponent implements OnInit {
         this.messageError = error.error.message;
       }
     );
-  }
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
   }
 }

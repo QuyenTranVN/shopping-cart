@@ -1,9 +1,6 @@
 <div class="row pt-5">
-  <div class="col">
-    <app-breadscrumbs></app-breadscrumbs>
-    <app-filters></app-filters>
-  </div>
-  <div class="col-lg-9 col-md-12">
-    <app-products></app-products>
-  </div>
+  <app-filters *ngIf="isMenu" [ngClass]="{ 'col-lg-3': 'isMenu' }">
+  </app-filters>
+
+  <app-products [ngClass]="{ 'col-lg-9': isMenu }"></app-products>
 </div>

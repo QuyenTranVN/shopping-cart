@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding-left: 30px;
+}
+.id {
+  position: relative;
+  .delete {
+    font-size: 12px;
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid grey;
+    left: 5px;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

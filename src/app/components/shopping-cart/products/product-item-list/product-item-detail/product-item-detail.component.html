@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pb-4">
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-12">
       <ngx-slick-carousel
@@ -20,7 +20,8 @@
     <div class="col-lg-6 col-md-12">
       <div class="card text-left">
         <div class="card-body" *ngIf="ProductDetailList">
-          <h4 class="card-title">{{ ProductDetailList.name }}</h4>
+          <h2 class="card-title">{{ ProductDetailList.name }}</h2>
+          <mat-divider class="divider"></mat-divider>
           <p class="card-text price">
             {{ ProductDetailList.price | currency: "$" }}
           </p>
@@ -29,36 +30,42 @@
           </p>
           <form [formGroup]="settingForm" class="input-group">
             <button
-              class="btn btn-outline-secondary shadow-none"
-              (click)="increment()"
-            >
-              +
-            </button>
-            <input
-              min="1"
-              max="5"
-              type="text"
-              formControlName="capacity"
-              (keypress)="onlyNumber($event)"
-            />
-            <button
-              class="btn btn-outline-secondary shadow-none"
+              class="btn btn-outline-secondary shadow-none increase"
               (click)="decrement()"
             >
               -
             </button>
+            <input
+              type="text"
+              formControlName="capacity"
+              (keypress)="onlyNumber($event)"
+            />
+
+            <button
+              class="btn btn-outline-secondary shadow-none decrease"
+              (click)="increment()"
+            >
+              +
+            </button>
             <button
               (click)="addToCart(ProductDetailList)"
+              [disabled]="ProductDetailList.quantities == 0"
               class="btn btn-small btn-danger shadow-none ml-3"
             >
               Add to cart
             </button>
           </form>
+          <span *ngIf="ProductDetailList.quantities == 0" class="text-danger"
+            >Out of stock! please visit later.
+          </span>
         </div>
       </div>
       <p class="pt-2 ref">
         <mat-divider></mat-divider>
-        Category: <span>Clothing</span>
+        categories:
+        <a [routerLink]="['/shop/product-item-list/', id]">
+          {{ ProductDetailList?.categories[0].name }}
+        </a>
       </p>
     </div>
   </div>

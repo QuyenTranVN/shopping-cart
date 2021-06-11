@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { DataShareService } from 'src/app/services/dataShare.service';
 import { UserService } from 'src/app/services/user.service';
 import { UserComponent } from '../user.component';
 
@@ -18,7 +19,6 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {}
   login() {
-    console.log(this.model);
     this.userService.login(this.model).subscribe(
       (data) => {
         localStorage.setItem('inforUser', JSON.stringify(data));

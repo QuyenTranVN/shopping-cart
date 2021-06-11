@@ -62,6 +62,7 @@ export class PlaceOrderComponent implements OnInit {
           this._snackBar.open('Order successfully', 'OK', { duration: 2000 });
           localStorage.removeItem('listCat');
           this.router.navigate(['shop']);
+          this.dataShare.addToCart({});
         } else {
           this._snackBar.open('You need to login first', 'OK', {
             duration: 2000,

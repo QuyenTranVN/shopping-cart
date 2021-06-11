@@ -9,11 +9,17 @@ import { UserComponent } from '../../user/user.component';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
+  sumData: number = 0;
   loginSuccess: boolean = false;
+  dataSource: any;
   constructor(
     public dialog: MatDialog,
     private dataShareService: DataShareService
-  ) {}
+  ) {
+    this.dataSource = JSON.parse(localStorage.getItem('listCat'))
+      ? JSON.parse(localStorage.getItem('listCat'))
+      : [];
+  }
 
   ngOnInit(): void {
     this.checkLogin();
@@ -21,6 +27,7 @@ export class NavComponent implements OnInit {
       this.loginSuccess = res;
     });
     this.getCartItem();
+    this.sum();
   }
 
   checkLogin() {
@@ -40,8 +47,44 @@ export class NavComponent implements OnInit {
       });
   }
   getCartItem() {
-    this.dataShareService.addCart.subscribe((data) => {
-      console.log(data);
+    this.dataShareService.addCart.subscribe((data: any) => {
+      if (Object.keys(data).length !== 0) {
+        this.dataSource.push({
+          productId: data.id,
+          product: data.productImages[0].image,
+          productName: data.name,
+          price: data.price,
+          quantity: data.quantity,
+          idParent: data.categories[0].id,
+          idChild: data.id,
+          quantities: data.quantities,
+        });
+        this.dataSource = this.handlingList();
+        localStorage.setItem('listCat', JSON.stringify(this.dataSource));
+        this.dataShareService.addToCart({});
+        this.sum();
+      } else {
+        this.sumData = 0;
+      }
     });
+  }
+
+  sum() {
+    this.sumData = 0;
+    for (let i = 0; i < this.dataSource.length; i++) {
+      this.sumData += this.dataSource[i].quantity;
+    }
+  }
+
+  handlingList() {
+    let res = Object.values(
+      this.dataSource.reduce((r: any, o: any) => {
+        r[o.productId]
+          ? (r[o.productId].quantity += o.quantity)
+          : (r[o.productId] = { ...o });
+        return r;
+      }, {})
+    );
+    return res;
   }
 }

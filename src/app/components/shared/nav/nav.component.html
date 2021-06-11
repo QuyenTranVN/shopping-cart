@@ -32,8 +32,8 @@
         <mat-divider [vertical]="true"></mat-divider>
         <a class="nav-link cart" [routerLink]="['/cart']"
           >CART /
-          <span class="cart-icon image-icon" [routerLink]="['/cart']">
-            <strong></strong>
+          <span class="cart-icon" [routerLink]="['/cart']">
+            <strong>{{sumData}}</strong>
           </span>
         </a>
       </li>
