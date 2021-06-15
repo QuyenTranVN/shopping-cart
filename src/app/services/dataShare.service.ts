@@ -1,34 +1,52 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable()
 export class DataShareService {
   private authenSubject = new BehaviorSubject(false);
   authen = this.authenSubject.asObservable();
 
-  private addCartSubject = new BehaviorSubject<any[]>([]);
+  private authenAdminSubject = new BehaviorSubject(false);
+  authenAdmin = this.authenAdminSubject.asObservable();
+
+  private addCartSubject = new BehaviorSubject({});
   addCart = this.addCartSubject.asObservable();
 
-  constructor() {}
+  private cartItemSubject = new BehaviorSubject({});
+  cartItem = this.cartItemSubject.asObservable();
 
+  private checkOutSubject = new BehaviorSubject({});
+  checkout = this.checkOutSubject.asObservable();
+
+  private menuSubject = new BehaviorSubject(true);
+  menu = this.menuSubject.asObservable();
+
+  private breadcrumSubject = new BehaviorSubject({});
+  bread = this.breadcrumSubject.asObservable();
+
+  constructor() {}
   isAuthen(isAuthen: boolean) {
     this.authenSubject.next(isAuthen);
   }
-  addToCart(item: any) {
-    // console.log(this.addCartSubject.getValue().concat([item]));
-    // const checkId = this.addCartSubject.getValue().concat([item]).indexOf(item);
-    // console.log('lllll', checkId);
-    // if (checkId) {
-    let test = this.containsObject(
-      item,
-      this.addCartSubject.getValue().concat([item])
-    );
-    console.log(test);
-    this.addCartSubject.next(this.addCartSubject.getValue().concat([item]));
-    // }
+
+  isAuthenAdmin(isAuthenAdmin: boolean) {
+    this.authenAdminSubject.next(isAuthenAdmin);
   }
 
-  containsObject(obj: object, list: any) {
-    return list.some((elem: any) => elem === obj);
+  addToCart(item: object) {
+    this.addCartSubject.next(item);
+    // this.addCartSubject.next(this.addCartSubject.getValue().concat([item]));
+  }
+  addCartItem(item: object) {
+    this.cartItemSubject.next(item);
+  }
+  addCheckOut(item: object) {
+    this.checkOutSubject.next(item);
+  }
+  checkMenu(isMenu: boolean) {
+    this.menuSubject.next(isMenu);
+  }
+  breadcrumList(item: any) {
+    this.breadcrumSubject.next(item);
   }
 }

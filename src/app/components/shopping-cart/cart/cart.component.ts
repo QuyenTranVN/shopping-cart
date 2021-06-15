@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataShareService } from 'src/app/services/dataShare.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
   isEditable = false;
+  checkout: any;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private dataShare: DataShareService) {}
 
   ngOnInit(): void {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required],
+    this.getAddress();
+  }
+
+  getAddress() {
+    this.dataShare.checkout.subscribe((data) => {
+      this.checkout = Object.keys(data).length !== 0;
     });
   }
 }

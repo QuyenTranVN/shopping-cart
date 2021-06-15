@@ -9,5 +9,6 @@ export const baseUrl = 'https://gumistore.herokuapp.com';
 // export const baseUrl = 'http://localhost:3000';
 export const apiUrl = baseUrl + '/api/public';
 export const sideBarUrl = apiUrl + '/sidebar';
+export const apiAdmin = baseUrl + '/api';
 
 // export const clothingUrl = baseUrl + '/clothing';

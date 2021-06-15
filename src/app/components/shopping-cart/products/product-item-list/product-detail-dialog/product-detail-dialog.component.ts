@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { baseUrl } from 'src/app/config/api';
 
 import { ClothingService } from 'src/app/services/clothing.service';
+import { DataShareService } from 'src/app/services/dataShare.service';
 
 @Component({
   selector: 'app-product-detail-dialog',
@@ -13,34 +14,37 @@ import { ClothingService } from 'src/app/services/clothing.service';
 })
 export class ProductDetailDialogComponent implements OnInit {
   ProductDetailList: any;
-
   settingForm: FormGroup;
   baseUrl = baseUrl;
-
   slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   idDetail: number;
+  id: number;
   constructor(
     // private clothingService: ClothingService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private form: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private productDetail: ClothingService
+    private productDetail: ClothingService,
+    private dataShare: DataShareService
   ) {
     this.idDetail = this.activatedRoute.snapshot.params.idDetail;
+    this.id = this.activatedRoute.snapshot.params.id;
   }
-
   ngOnInit(): void {
-    this.getProductDetail();
     this.settingForm = this.form.group({
       capacity: [1],
     });
+    this.getProductDetail();
   }
 
   increment() {
-    if (this.settingForm.value['capacity'] < 10) {
+    if (
+      this.settingForm.value['capacity'] < this.ProductDetailList.quantities
+    ) {
       this.settingForm.setValue({
         capacity: this.settingForm.get('capacity').value + 1,
       });
@@ -67,5 +71,9 @@ export class ProductDetailDialogComponent implements OnInit {
     this.productDetail.getProductDetail(this.data.id).subscribe((res: any) => {
       this.ProductDetailList = res['data'];
     });
+  }
+  addToCart(item: any) {
+    item.quantity = this.settingForm.value.capacity;
+    this.dataShare.addToCart(item);
   }
 }

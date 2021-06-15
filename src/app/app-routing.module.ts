@@ -8,6 +8,14 @@ import { ProductItemDetailComponent } from './components/shopping-cart/products/
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { AddressComponent } from './components/user/profile/address/address.component';
 import { AccountDetailComponent } from './components/user/profile/account-detail/account-detail.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { AdminUserComponent } from './admin/sidebar/admin-user/admin-user.component';
+import { AdminDashboardComponent } from './admin/sidebar/admin-dashboard/admin-dashboard.component';
+import { AdminUserDetailComponent } from './admin/sidebar/admin-user-detail/admin-user-detail.component';
+import { AdminCreateUserComponent } from './admin/sidebar/admin-create-user/admin-create-user.component';
+import { AdAdminComponent } from './admin/sidebar/ad-admin/ad-admin.component';
 const routes: Routes = [
   {
     path: '',
@@ -30,6 +38,53 @@ const routes: Routes = [
       {
         path: 'product-item-list/:id/:idDetail',
         component: ProductItemDetailComponent,
+      },
+    ],
+  },
+
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      {
+        path: '',
+        component: AdminLoginComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'sidebar',
+        component: SidebarComponent,
+        children: [
+          {
+            path: '',
+            component: AdminDashboardComponent,
+            pathMatch: 'full',
+          },
+          {
+            path: 'admin-user',
+            component: AdminUserComponent,
+          },
+          {
+            path: 'admin-admin',
+            component: AdAdminComponent,
+          },
+          {
+            path: 'admin-user/create',
+            component: AdminUserDetailComponent,
+          },
+          {
+            path: 'admin-user/:id',
+            component: AdminUserDetailComponent,
+          },
+          {
+            path: 'admin-dashboard',
+            component: AdminDashboardComponent,
+          },
+          {
+            path: 'admin-create',
+            component: AdminCreateUserComponent,
+          },
+        ],
       },
     ],
   },

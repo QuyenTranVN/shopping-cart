@@ -21,6 +21,7 @@ export class ProductItemDetailComponent implements OnInit {
     slidesToScroll: 1,
   };
   idDetail: number;
+  id: number;
   constructor(
     private activatedRoute: ActivatedRoute,
     private form: FormBuilder,
@@ -28,6 +29,8 @@ export class ProductItemDetailComponent implements OnInit {
     private dataShare: DataShareService
   ) {
     this.idDetail = this.activatedRoute.snapshot.params.idDetail;
+    this.id = this.activatedRoute.snapshot.params.id;
+    this.dataShare.checkMenu(false);
   }
   ngOnInit(): void {
     // this.loadClothing();
@@ -37,7 +40,9 @@ export class ProductItemDetailComponent implements OnInit {
     this.getProductDetail();
   }
   increment() {
-    if (this.settingForm.value['capacity'] < 10) {
+    if (
+      this.settingForm.value['capacity'] < this.ProductDetailList.quantities
+    ) {
       this.settingForm.setValue({
         capacity: this.settingForm.get('capacity').value + 1,
       });
@@ -64,6 +69,7 @@ export class ProductItemDetailComponent implements OnInit {
     });
   }
   addToCart(item: any) {
+    item.quantity = this.settingForm.value.capacity;
     this.dataShare.addToCart(item);
   }
 }

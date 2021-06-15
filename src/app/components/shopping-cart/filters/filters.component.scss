@@ -1,6 +1,16 @@
+h2 {
+  color: #777777;
+}
+.divider-width {
+  width: 30px;
+  border-width: 3px;
+}
 mat-accordion {
   .mat-expansion-panel {
     box-shadow: none;
+    .mat-expansion-panel-header {
+      padding: 0 10px 0 0;
+    }
     a {
       text-transform: capitalize;
       text-decoration: none;
@@ -17,14 +27,31 @@ mat-accordion {
 }
 ::ng-deep .mat-expansion-panel-content {
   .mat-expansion-panel-body {
-    padding: 0 25px;
+    padding: 0 24px;
+  }
+}
+.color {
+  padding: 12px 0;
+  margin: 0;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
   }
 }
 
-// .mat-expansion-panel {
-//   .mat-expansion-panel-header-description {
-//     .mat-expansion-indicator:after {
-//       content: none !important;
-//     }
-//   }
-// }
+.filter-by-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    border-radius: 20px;
+    font-size: 16px;
+    width: 100px;
+  }
+  p {
+    width: 60px;
+    span {
+      color: #777777;
+    }
+  }
+}

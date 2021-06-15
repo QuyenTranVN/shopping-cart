@@ -1,17 +1,16 @@
-<mat-horizontal-stepper #stepper>
-  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
-    <form [formGroup]="firstFormGroup">
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step>
+    <form>
       <ng-template matStepLabel>SHOPPING CART</ng-template>
       <app-cart-item></app-cart-item>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>CHECKOUT DETAILS</ng-template>
-      <app-address></app-address>
-    </form>
+  <mat-step>
+    <ng-template matStepLabel>CHECKOUT DETAILS</ng-template>
+    <app-checkout></app-checkout>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>ORDER COMPLETE</ng-template>
+    <app-place-order *ngIf="checkout"></app-place-order>
   </mat-step>
 </mat-horizontal-stepper>

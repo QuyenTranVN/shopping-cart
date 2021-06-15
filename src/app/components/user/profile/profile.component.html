@@ -4,8 +4,12 @@
   <div class="row">
     <div class="col-lg-3 p-0">
       <div class="nav-link account-user">
-        <img src="" alt="" />
-        <p>Email</p>
+        <img
+          class="avatar"
+          src="{{ baseUrl }}{{ inforUser.user.avatar }} "
+          alt="Avatar"
+        />
+        <p class="email mt-3">{{ inforUser.user.email }}</p>
       </div>
       <mat-divider></mat-divider>
 

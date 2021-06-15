@@ -21,6 +21,7 @@
       <div class="card text-left">
         <div class="card-body" *ngIf="ProductDetailList">
           <h4 class="card-title">{{ ProductDetailList.name }}</h4>
+          <mat-divider class="divider"></mat-divider>
           <p class="card-text price">
             {{ ProductDetailList.price | currency: "$" }}
           </p>
@@ -29,33 +30,39 @@
           </p>
           <form [formGroup]="settingForm" class="input-group">
             <button
-              class="btn btn-outline-secondary shadow-none"
+              class="btn btn-outline-secondary shadow-none increase"
               (click)="increment()"
             >
               +
             </button>
             <input
-              min="1"
-              max="5"
               type="text"
               formControlName="capacity"
               (keypress)="onlyNumber($event)"
             />
             <button
-              class="btn btn-outline-secondary shadow-none"
+              class="btn btn-outline-secondary shadow-none decrease"
               (click)="decrement()"
             >
               -
             </button>
-            <button class="btn btn-small btn-danger shadow-none ml-3">
+            <button
+              (click)="addToCart(ProductDetailList)"
+              [disabled]="ProductDetailList.quantities == 0"
+              class="btn btn-small btn-danger shadow-none ml-3"
+            >
               Add to cart
             </button>
+            <span *ngIf="ProductDetailList.quantities == 0" class="text-danger"
+              >Out of stock! please visit later.
+            </span>
           </form>
         </div>
       </div>
       <p class="pt-2 ref">
         <mat-divider></mat-divider>
-        Category: <span>Clothing</span>
+        Category:
+        {{ ProductDetailList?.categories[0].name }}
       </p>
     </div>
   </div>

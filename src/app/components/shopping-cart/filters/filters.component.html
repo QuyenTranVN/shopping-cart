@@ -1,3 +1,5 @@
+<h2>{{ browse }}</h2>
+<mat-divider class="divider-width"></mat-divider>
 <mat-accordion *ngFor="let item of categoryList">
   <mat-expansion-panel
     (opened)="panelOpenState = true"
@@ -7,10 +9,7 @@
   >
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <a
-          [routerLink]="['product-item-list/', item.id]"
-          routerLinkActive="router-link-active"
-        >
+        <a [routerLink]="['product-item-list/', item.id]">
           {{ item.name }}
         </a>
       </mat-panel-title>
@@ -23,3 +22,24 @@
   </mat-expansion-panel>
   <mat-divider></mat-divider>
 </mat-accordion>
+<h2 class="mt-2">{{ filter }}</h2>
+<mat-divider class="divider-width"></mat-divider>
+<mat-accordion *ngFor="let colorItem of color">
+  <p class="color">
+    {{ colorItem }}
+  </p>
+  <mat-divider></mat-divider>
+</mat-accordion>
+<h2 class="mt-2">{{ filterByPrice }}</h2>
+<mat-divider class="divider-width"></mat-divider>
+<form>
+  <input
+    type="range"
+    class="form-control-range mt-3 mb-3"
+    id="formControlRange"
+  />
+  <div class="form-group filter-by-price">
+    <button class="btn btn-secondary">FILTER</button>
+    <P> <span>price</span> : $0 -$3.000</P>
+  </div>
+</form>

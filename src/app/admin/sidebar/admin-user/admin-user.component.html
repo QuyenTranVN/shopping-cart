@@ -1,0 +1,40 @@
+<button class="btn btn-success create" [routerLink]="['create']">Create</button>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th width="10%" mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element" class="id">
+      <button class="btn shadow-none delete" (click)="delete(element.id)">
+        X
+      </button>
+      <a [routerLink]="[element.id]">
+        {{ element.id }}
+      </a>
+    </td>
+  </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th width="40%" mat-header-cell *matHeaderCellDef>Avatar</th>
+    <td mat-cell *matCellDef="let element">{{ element.avatar }}</td>
+  </ng-container>
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th width="20%" mat-header-cell *matHeaderCellDef>Username</th>
+    <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th width="30%" mat-header-cell *matHeaderCellDef class="email">Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [length]="length"
+  [pageSize]="15"
+  showFirstLastButtons
+  (page)="changePag($event)"
+></mat-paginator>
