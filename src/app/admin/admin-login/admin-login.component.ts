@@ -34,7 +34,12 @@ export class AdminLoginComponent implements OnInit {
         this.router.navigate(['admin', 'sidebar', 'admin-dashboard']);
       },
 
-      (error) => {}
+      (error) => {
+        // const arrayItem = Object.getOwnPropertyNames(error.error);
+        // console.log(arrayItem);
+
+        this.messageError = 'Your password or your email is invalid';
+      }
     );
   }
   checkLogin() {

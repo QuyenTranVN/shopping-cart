@@ -30,10 +30,11 @@ export class AdminUserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.idItem) {
-      this.updateAdminUser();
+      this.getUser();
     }
   }
-  updateAdminUser() {
+
+  getUser() {
     this.adminService.adminShowUser(this.idItem).subscribe((data: any) => {
       this.dataSource = data.data;
       this.model = {
@@ -45,10 +46,18 @@ export class AdminUserDetailComponent implements OnInit {
         email: data.data.email,
         address: data.data.address,
       };
-      console.log(this.model);
       this.baseUrl = baseUrl;
     });
   }
+
+  updateAdminUser() {
+    this.adminService
+      .adminUpdateUser(this.model, this.idItem)
+      .subscribe((data: any) => {
+        console.log(data);
+      });
+  }
+
   createAccount() {
     this.adminService.adminCreateUser(this.model).subscribe((data: any) => {
       console.log(data);
