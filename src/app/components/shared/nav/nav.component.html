@@ -1,43 +1,45 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <h1>
-    <a
-      class="navbar-brand"
-      [routerLink]="['/shop']"
-      routerLinkActive="router-link-active"
-    >
-      <img src="../../../assets/img/logo/logo.png" alt="logo" />
-    </a>
-  </h1>
+  <div class="container">
+    <h1>
+      <a
+        class="navbar-brand"
+        [routerLink]="['/shop']"
+        routerLinkActive="router-link-active"
+      >
+        <img src="../../../assets/img/logo/logo.png" alt="logo" />
+      </a>
+    </h1>
 
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a *ngIf="!loginSuccess" class="nav-link" (click)="openDialog()"
-          >LOGIN</a
-        >
-        <a *ngIf="loginSuccess" class="nav-link" [routerLink]="['/profile']"
-          >MY ACCOUNT</a
-        >
-        <mat-divider [vertical]="true"></mat-divider>
-        <a class="nav-link cart" [routerLink]="['/cart']"
-          >CART /
-          <span class="cart-icon" [routerLink]="['/cart']">
-            <strong>{{sumData}}</strong>
-          </span>
-        </a>
-      </li>
-    </ul>
-    <mat-divider [vertical]="true"></mat-divider>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a *ngIf="!loginSuccess" class="nav-link" (click)="openDialog()"
+            >LOGIN</a
+          >
+          <a *ngIf="loginSuccess" class="nav-link" [routerLink]="['/profile']"
+            >MY ACCOUNT</a
+          >
+          <mat-divider [vertical]="true"></mat-divider>
+          <a class="nav-link cart" [routerLink]="['/cart']"
+            >CART /
+            <span class="cart-icon" [routerLink]="['/cart']">
+              <strong>{{ sumData }}</strong>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <mat-divider [vertical]="true"></mat-divider>
+    </div>
   </div>
 </nav>

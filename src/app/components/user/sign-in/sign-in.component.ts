@@ -26,8 +26,7 @@ export class SignInComponent implements OnInit {
         this.dialogRef.close('success');
       },
       (error) => {
-        this.messageError = error.error.message;
-        console.log(error.error.message);
+        this.messageError = 'Your password or username is invalid';
       }
     );
   }

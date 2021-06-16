@@ -106,6 +106,7 @@ export class CartItemComponent implements OnInit {
     this.calTotal();
     localStorage.setItem('listCat', JSON.stringify(this.dataSource));
     this._snackBar.open('Updated successfully', 'OK', { duration: 2000 });
+    this.dataShare.addToCart({});
   }
   calTotal() {
     this.total = 0;

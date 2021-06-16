@@ -31,16 +31,18 @@ export class SignUpComponent implements OnInit {
     });
   }
   register() {
-    // console.log(this.registerForm.value);
     this.userService.signUp(this.registerForm.value).subscribe(
       (data: any) => {
         this.messageError = '';
-        this._snackBar.open(data.message, 'OK', { duration: 2000 });
-
-        console.log(data);
+        this._snackBar.open(data.message, 'OK', {
+          duration: 2000,
+          panelClass: ['mat-toolbar', 'mat-primary'],
+        });
+        this.registerForm.reset();
       },
       (error) => {
-        this.messageError = error.error.message;
+        this.messageError = 'The email has already been taken.';
+        console.log(this.messageError);
       }
     );
   }
