@@ -11,15 +11,11 @@ import { UserComponent } from '../../user/user.component';
 export class NavComponent implements OnInit {
   sumData: number = 0;
   loginSuccess: boolean = false;
-  dataSource: any;
+  dataSource: any = [];
   constructor(
     public dialog: MatDialog,
     private dataShareService: DataShareService
-  ) {
-    this.dataSource = JSON.parse(localStorage.getItem('listCat'))
-      ? JSON.parse(localStorage.getItem('listCat'))
-      : [];
-  }
+  ) {}
 
   ngOnInit(): void {
     this.checkLogin();
@@ -48,6 +44,9 @@ export class NavComponent implements OnInit {
   }
   getCartItem() {
     this.dataShareService.addCart.subscribe((data: any) => {
+      this.dataSource = JSON.parse(localStorage.getItem('listCat'))
+        ? JSON.parse(localStorage.getItem('listCat'))
+        : [];
       if (Object.keys(data).length !== 0) {
         this.dataSource.push({
           productId: data.id,
@@ -59,13 +58,14 @@ export class NavComponent implements OnInit {
           idChild: data.id,
           quantities: data.quantities,
         });
+        console.log(this.dataSource);
         this.dataSource = this.handlingList();
         localStorage.setItem('listCat', JSON.stringify(this.dataSource));
         this.dataShareService.addToCart({});
-        this.sum();
       } else {
         this.sumData = 0;
       }
+      this.sum();
     });
   }
 
